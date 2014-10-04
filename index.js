@@ -15,3 +15,18 @@ app.use('/', function(req, res){
 server.listen(port, function(){
   console.log('server started, listening on port ' + port + '...');
 });
+
+
+
+// Phidgets stuff
+var phidgetsLib = require('phidgets');
+var phidget = new phidgetsLib();
+
+phidget.connect(function(){
+  console.log('phidget connected');
+});
+
+phidget.on('input', function(boardId, inputId, state){
+  if(inputId == 1 && state == 1)
+    io.sockets.emit('sup');
+});
