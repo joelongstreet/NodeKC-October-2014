@@ -2,10 +2,11 @@
   "name": "NodeKC-October-2014",
   "version": "0.0.1",
   "engines": {
-    "node" : "0.10.x"
+    "node": "0.10.x"
   },
   "dependencies": {
-    "express": "~4.2.0"
+    "express": "~4.2.0",
+    "socket.io": "^1.1.0"
   },
   "author": "Joe Longstreet",
   "license": "MIT"

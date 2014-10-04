@@ -1,3 +1,4 @@
+var socket = io();
 var $background = document.getElementById('container');
 var $sup = document.getElementById('sup');
 var $audio = document.getElementById('clip');
@@ -25,3 +26,8 @@ var highlight = function(){
 var playSound = function(){
   $audio.play();
 };
+
+socket.on('sup', function(){
+  highlight();
+  playSound();
+});
