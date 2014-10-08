@@ -1,3 +1,3 @@
 [submodule "Bizarrio"]
 	path = Bizarrio
-	url = git@github.com:MoonshotLab/Bizarrio.git
+	url = git://github.com/MoonshotLab/Bizarrio.git
