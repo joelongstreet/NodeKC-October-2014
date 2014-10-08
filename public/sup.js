@@ -24,7 +24,13 @@ var highlight = function(){
 };
 
 var playSound = function(){
-  $audio.play();
+  if($audio.paused)
+    $audio.play();
+  else{
+    $audio.pause();
+    $audio.currentTime = 0;
+    $audio.play();
+  }
 };
 
 socket.on('sup', function(){

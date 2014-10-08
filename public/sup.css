@@ -10,7 +10,7 @@ html, body{
   height: 100%;
   display: table;
   background-color: black;
-  -webkit-transition: .2s linear background-color;
+  -webkit-transition: .1s linear background-color;
 }
 
 h1{
@@ -20,7 +20,7 @@ h1{
   font-weight: normal;
   font-family: 'Yanone Kaffeesatz', 'Helvetica', sans-serif;
   color: rgba(255, 255, 255, .1);
-  -webkit-transition: .2s linear color;
+  -webkit-transition: .1s linear color;
   text-align: center;
 }
 
