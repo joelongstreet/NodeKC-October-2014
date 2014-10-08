@@ -4,6 +4,7 @@ var http = require('http');
 var app = express();
 var server = http.Server(app);
 var io = require('socket.io')(server);
+var needle = require('needle');
 var port = process.env.PORT || 3000;
 
 app.use(express.static(path.join(__dirname, 'public')));
@@ -18,7 +19,47 @@ server.listen(port, function(){
 
 
 
-// Phidgets stuff
+
+// Hey There demo
+var notifySpark = function(status, next){
+  var url = [
+    'https://api.spark.io/v1/devices/',
+    process.env.SPARK_CORE_ID,
+    '/updateState'
+  ].join('');
+
+  var params = [
+    'access_token=',
+    process.env.SPARK_CORE_TOKEN,
+    '&params=',
+    status
+  ].join('');
+
+  needle.post(url, params, next);
+};
+
+var busy = false;
+var handleStatusUpdate = function(data){
+  if(!busy){
+    busy = true;
+
+    io.sockets.emit('disable-buttons');
+    notifySpark(data.status, function(err, res){
+      busy = false;
+      io.sockets.emit('enable-buttons');
+    });
+  }
+};
+
+io.on('connection', function(socket){
+  socket.on('status-update', handleStatusUpdate);
+});
+
+
+
+
+
+// Phidgets stuff / Sup demo
 var phidgetsLib = require('phidgets');
 var phidget = new phidgetsLib();
 
