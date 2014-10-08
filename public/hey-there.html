@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name='viewport' content='width=device-width, user-scalable=no'>
+    <title>hey there...</title>
+    <link rel='stylesheet' href='/hey-there.css' />
+    <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
+    <script src='http://code.jquery.com/jquery-1.11.1.min.js'></script>
+  </head>
+  <body>
+    <div class='surround'>
+      <div class='container'>
+        <h1>hey there...</h1>
+        <h2>how are you?</h2>
+        <div class='buttons'>
+          <a class='button green' data-status='great' href='#'>great!</a>
+          <a class='button dk-green' data-status='good' href='#'>good</a>
+          <a class='button purple' data-status='fine' href='#'>fine</a>
+          <a class='button yellow' data-status='bad' href='#'>bad</a>
+          <a class='button red' data-status='bad!' href='#'>bad!</a>
+        </div>
+      </div>
+    </div>
+    <script src='/socket.io/socket.io.js'></script>
+    <script src='/hey-there.js'></script>
+  </body>
+</html>
